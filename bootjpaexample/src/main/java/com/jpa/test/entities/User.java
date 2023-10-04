@@ -55,6 +55,11 @@ public class User {
 		this.city = city;
 	}
 
+	@Override
+	public String toString() {
+		return "User [id=" + id + ", name=" + name + ", city=" + city + ", status=" + status + "]";
+	}
+
 	public String getStatus() {
 		return status;
 	}
