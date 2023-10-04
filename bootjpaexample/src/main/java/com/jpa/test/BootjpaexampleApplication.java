@@ -1,5 +1,7 @@
 package com.jpa.test;
 
+import java.util.List;
+
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.ConfigurableApplicationContext;
@@ -33,12 +35,22 @@ public class BootjpaexampleApplication {
 		user2.setCity("City2");
 		user2.setStatus("Java Programmer");
 		
-		User result = userRepository.save(user2);
+//		single user saving
+//		User result = userRepository.save(user2);
 		
-		System.out.println("saved user "+result);
+//		save multiple objects
+		List<User> users = List.of(user1,user2);
+		Iterable<User> result = userRepository.saveAll(users);
 		
+		result.forEach(user->{
+			System.out.println(user);
+		});
+		
+//		System.out.println("saved user "+result);
 		
 		System.out.println("done");
+
+		
 		
 	}
 
