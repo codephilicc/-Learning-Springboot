@@ -69,10 +69,11 @@ public class BootjpaexampleApplication {
 //		Iterable<User> allUsers = userRepository.findAll();
 //		allUsers.forEach(user->System.out.println(user));
 //		userRepository.deleteAll(allUsers);
-		
-		
-		List<User> user = userRepository.findByName("Ankit");
-		user.forEach(u->System.out.println(u));
+	
+//		List<User> user = userRepository.findByName("Ankit");
+//		user.forEach(u->System.out.println(u));
+		List<User> usr = userRepository.findByNameAndCity("Ankit","delhi");
+		usr.forEach(u->System.out.println(u));
 		
 	}
 
