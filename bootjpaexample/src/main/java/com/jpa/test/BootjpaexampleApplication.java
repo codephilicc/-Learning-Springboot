@@ -66,10 +66,13 @@ public class BootjpaexampleApplication {
 //		Deleting the user element
 //		userRepository.deleteById(202);
 //		System.out.println("Deleted");
+//		Iterable<User> allUsers = userRepository.findAll();
+//		allUsers.forEach(user->System.out.println(user));
+//		userRepository.deleteAll(allUsers);
 		
-		Iterable<User> allUsers = userRepository.findAll();
-		allUsers.forEach(user->System.out.println(user));
-		userRepository.deleteAll(allUsers);
+		
+		List<User> user = userRepository.findByName("Ankit");
+		user.forEach(u->System.out.println(u));
 		
 	}
 
