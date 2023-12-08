@@ -1,11 +1,15 @@
 package com.learn.springboot.springWebApp.todo;
 
 import java.time.LocalDate;
+import java.util.ArrayList;
 import java.util.List;
 
+import org.springframework.stereotype.Service;
+
+@Service
 public class TodoService {
 
-	private static List<Todo> todos;
+	private static List<Todo> todos = new ArrayList<>();
 
 	static {
 		todos.add(new Todo(1, "springboot", "Learn AWS", LocalDate.now().plusYears(1), false));
