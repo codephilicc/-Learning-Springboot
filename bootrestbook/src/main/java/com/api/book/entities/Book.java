@@ -1,4 +1,4 @@
-package com.api.book.controllers.entities;
+package com.api.book.entities;
 
 public class Book {
 

@@ -1,12 +1,12 @@
-package com.api.book.controllers.entities.services;
+package com.api.book.services;
 
 import java.util.ArrayList;
-import java.util.List;import java.util.stream.Collector;
+import java.util.List;
 import java.util.stream.Collectors;
 
 import org.springframework.stereotype.Component;
 
-import com.api.book.controllers.entities.Book;
+import com.api.book.entities.Book;
 
 @Component
 public class BookServices {
