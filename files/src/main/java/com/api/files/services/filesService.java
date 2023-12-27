@@ -1,18 +1,22 @@
 package com.api.files.services;
 
-import java.util.ArrayList;
-import java.util.List;
-
-import com.api.files.entities.files;
+import java.io.File;
 
 public class filesService {
 
-	private static List<files> list = new ArrayList<files>();
+	public static void main(String[] args) {
+		
+		String path = ":/file";
 
-	static {
-		list.add(new files(1, "story files"));
-		list.add(new files(2, "prisoner files"));
-		list.add(new files(3, "Dc files"));
+		File fObject = new File(path);
+
+		if (fObject.exists() && fObject.isDirectory()) {
+			File a[] = fObject.listFiles();
+			for (File f : a) {
+				System.out.println(f);
+			}
+
+		}
 
 	}
 
