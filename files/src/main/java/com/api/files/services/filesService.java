@@ -2,8 +2,11 @@ package com.api.files.services;
 
 import java.io.File;
 
-public class filesService {
+import org.springframework.stereotype.Service;
 
+@Service
+public class filesService {
+	
 	public static void main(String[] args) {
 		
 		String path = ":/file";
