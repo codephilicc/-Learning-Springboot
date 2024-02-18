@@ -2,7 +2,12 @@ package com.api.files.services;
 
 import java.io.File;
 
+<<<<<<< HEAD
 import org.springframework.stereotype.Service;
+=======
+
+import com.api.files.entities.files;
+>>>>>>> 76478aa07d3da6ea7e7ed406a4d705765e31fc90
 
 @Service
 public class filesService {
