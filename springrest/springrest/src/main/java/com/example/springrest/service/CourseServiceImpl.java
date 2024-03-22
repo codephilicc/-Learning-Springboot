@@ -35,4 +35,27 @@ public class CourseServiceImpl implements CourseService {
 		return cr;
 	}
 
+	@Override
+	public Course postCourses(Course course) {
+//		Course c1 = new Course();
+//		c1.setId(course.getId());
+//		c1.setTitle(course.getTitle());
+//		c1.setDescription(course.getDescription());
+		list.add(course);
+		return course;
+	}
+
+	@Override
+	public Course deleteCourseById(Long id) {
+		Course c2 = null;
+		for (Course c : list) {
+			if (c.getId() == id) {
+				c2 = c;
+				list.remove(c2);
+				break;
+			}
+		}
+		return c2;
+	}
+
 }
