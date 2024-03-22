@@ -11,17 +11,28 @@ import com.example.springrest.entities.Course;
 public class CourseServiceImpl implements CourseService {
 
 	List<Course> list;
-	
+
 	public CourseServiceImpl() {
 		list = new ArrayList<>();
-		list.add(new Course((long) 122,"java core","learn java"));
-		list.add(new Course((long)101,"python","learn python"));	
+		list.add(new Course((long) 122, "java core", "learn java"));
+		list.add(new Course((long) 101, "python", "learn python"));
 	}
-	
-	
+
 	@Override
 	public List<Course> getCourses() {
 		return list;
+	}
+
+	@Override
+	public Course getCourseById(Long id) {
+		Course cr = null;
+		for (Course c : list) {
+			if (c.getId() == id) {
+				cr = c;
+				break;
+			}
+		}
+		return cr;
 	}
 
 }
