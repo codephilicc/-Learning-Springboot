@@ -3,6 +3,8 @@ package com.example.springrest.controller;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -48,8 +50,13 @@ public class MyController {
 	
 	
 	@DeleteMapping("courses/{id}")
-	public void deleteCoursebyId(@PathVariable String id) {
-		this.courseService.deleteCourseById(Long.parseLong(id));
+	public ResponseEntity<HttpStatus> deleteCourseById(@PathVariable String id){
+		try {
+			this.courseService.deleteCourseById(Long.parseLong(id));
+			return new ResponseEntity<>(HttpStatus.OK);
+		} catch (Exception e) {
+			return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
+		}
 	}
 	
 }

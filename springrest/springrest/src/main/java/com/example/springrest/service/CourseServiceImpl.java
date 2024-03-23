@@ -1,38 +1,42 @@
 package com.example.springrest.service;
 
-import java.util.ArrayList;
 import java.util.List;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.example.springrest.dao.CourseDao;
 import com.example.springrest.entities.Course;
 
 @Service
 public class CourseServiceImpl implements CourseService {
 
-	List<Course> list;
+//	List<Course> list;
+
+	@Autowired
+	private CourseDao courseDao;
 
 	public CourseServiceImpl() {
-		list = new ArrayList<>();
-		list.add(new Course((long) 122, "java core", "learn java"));
-		list.add(new Course((long) 101, "python", "learn python"));
+//		list = new ArrayList<>();
+//		list.add(new Course((long) 122, "java core", "learn java"));
+//		list.add(new Course((long) 101, "python", "learn python"));
 	}
 
 	@Override
 	public List<Course> getCourses() {
-		return list;
+		return courseDao.findAll();
 	}
 
 	@Override
 	public Course getCourseById(Long id) {
-		Course cr = null;
-		for (Course c : list) {
-			if (c.getId() == id) {
-				cr = c;
-				break;
-			}
-		}
-		return cr;
+//		Course cr = null;
+//		for (Course c : list) {
+//			if (c.getId() == id) {
+//				cr = c;
+//				break;
+//			}
+//		}
+		return courseDao.getOne(id);
 	}
 
 	@Override
@@ -41,21 +45,22 @@ public class CourseServiceImpl implements CourseService {
 //		c1.setId(course.getId());
 //		c1.setTitle(course.getTitle());
 //		c1.setDescription(course.getDescription());
-		list.add(course);
+//		list.add(course);
+		courseDao.save(course);
 		return course;
 	}
 
 	@Override
-	public Course deleteCourseById(Long id) {
-		Course c2 = null;
-		for (Course c : list) {
-			if (c.getId() == id) {
-				c2 = c;
-				list.remove(c2);
-				break;
-			}
-		}
-		return c2;
+	public void deleteCourseById(Long id) {
+//		Course c2 = null;
+//		for (Course c : list) {
+//			if (c.getId() == id) {
+//				c2 = c;
+//				list.remove(c2);
+//				break;
+//			}
+//		}
+		courseDao.deleteById(id);
 	}
 
 	@Override
@@ -71,12 +76,13 @@ public class CourseServiceImpl implements CourseService {
 //				break;
 //			}
 //		}
-		list.forEach(e -> {
-			if (e.getId() == course.getId()) {
-				e.setTitle(course.getTitle());
-				e.setDescription(course.getDescription());
-			}
-		});
+//		list.forEach(e -> {
+//			if (e.getId() == course.getId()) {
+//				e.setTitle(course.getTitle());
+//				e.setDescription(course.getDescription());
+//			}
+//		});
+		courseDao.save(course);
 		return course;
 	}
 
