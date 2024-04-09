@@ -5,6 +5,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -17,16 +18,17 @@ import com.example.springrest.entities.Course;
 import com.example.springrest.service.CourseService;
 
 @RestController
+@CrossOrigin(origins="http://localhost:3000")
 public class MyController {
 
 	@Autowired
 	private CourseService courseService;
 
 //testing purspose	
-	@GetMapping("/home")
-	public String home() {
-		return "Welcome to courses application";
-	}
+//	@GetMapping("/home")
+//	public String home() {
+//		return "Welcome to courses application";
+//	}
 
 	@GetMapping("/courses")
 	public List<Course> getCourse() {
